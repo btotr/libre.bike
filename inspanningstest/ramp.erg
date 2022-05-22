@@ -1,0 +1,34 @@
+[COURSE HEADER]
+VERSION = 2
+UNITS = ENGLISH
+DESCRIPTION = Ramp Test - 20w elke minuut
+FILE NAME = ramp.erg
+MINUTES  WATTS
+[END COURSE HEADER]
+
+[COURSE DATA]
+0       100
+1       120
+2       140
+3       160
+4       180
+4       LAP
+5       200
+6       220
+7       240
+8       260
+9       280
+9       LAP
+10      300
+11      320
+12      340
+13      360
+14      380
+14      LAP
+15      400
+16      420
+17      440
+18      460
+19      480
+20      500
+[END COURSE DATA]
