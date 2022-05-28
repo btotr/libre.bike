@@ -1,10 +1,25 @@
-\usemodule[spreadsheet]
 \title{inspanningstest}
 
-\starttext
-\subject
 
-Hoi [naam]
+\def\ftp{300}
+\def\naam{naam}
+
+
+
+\def\zone#1%
+  {\ctxlua{context(#1/100*\ftp)}}
+
+\def\row#1 #2:#3:{\bTR[topframe=on,framecolor=#1]
+\bTD#2\eTD\bTD#3\eTD
+\eTR}
+
+\setupTABLE[frame=on,style=\tfxx]
+\setupTABLE[column][1,2][width=0.4 \textwidth]
+
+\starttext
+\subject{uitslag}
+
+Hoi \naam
 
 Tof dat je een inspanningstest hebt gedaan. Met deze test weten we nu precies jouw comfortzone!
 
@@ -13,40 +28,24 @@ En dat is mooi want met deze zone weten we wanneer we je moeten prikkelen om fit
 De volgende comfortzones geven aan hoe relaxt je fiets bij een bepaalde
 inspanning.
 
-\startspreadsheettable[test]
-\startrow
-\startcell[align=flushleft,width=8cm] "zone 1" \stopcell
-\startcell[align=flushright,width=3cm] 115  \stopcell
-\stoprow
-\startrow
-\startcell[align=flushleft] "zone 2" \stopcell
-\startcell[align=flushright] 120  \stopcell
-\stoprow
-\startrow
-\startcell[align=flushleft] "zone 3" \stopcell
-\startcell[align=flushright] 130 \stopcell
-\stoprow
-\startrow
-\startcell[align=flushleft] "zone 4" \stopcell
-\startcell[align=flushright] 140 \stopcell
-\stoprow
-\startrow
-\startcell[align=flushleft] "zone 5" \stopcell
-\startcell[align=flushright] 160 \stopcell
-\stoprow
-\startrow
-\startcell[align=flushleft] "zone" \stopcell
-\startcell[align=flushright] 170 \stopcell
-\stoprow
-\stopspreadsheettable
+\bTABLE
+\row white zone 1:\zone{60}:
+\row red zone 2:\zone{75}:
+\row white zone 3:\zone{100}:
+\row red zone 4:\zone{110}:
+\row red zone 5:\zone{120}:
+\eTABLE
 
 De basistraining is er op gericht om je fitter te maken. Na 8 weken kun je zone
 3 een uur vol houden.
 
 \subject{stats voor nerds}
-ftp
-cp
-pp
-w/kg
-maxHr
+
+\subsubject{ftp}
+\ftp
+\subsubject{cp}
+\ftp
+\subsubject{pp}
+\subsubject{w/kg}
+\subsubject{maxHr}
 \stoptext
