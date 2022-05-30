@@ -1,23 +1,15 @@
-\title{inspanningstest}
+\environment env
 
+\title{uitslag inspanningstest}
 
+% TODO naar extern bestand
 \def\ftp{300}
-\def\naam{naam}
+\def\naam{Colin}
+\def\gewicht{81}
+\def\hfmax{184}
 
-
-
-\def\zone#1%
-  {\ctxlua{context(#1/100*\ftp)}}
-
-\def\row#1 #2:#3:{\bTR[topframe=on,framecolor=#1]
-\bTD#2\eTD\bTD#3\eTD
-\eTR}
-
-\setupTABLE[frame=on,style=\tfxx]
-\setupTABLE[column][1,2][width=0.4 \textwidth]
 
 \starttext
-\subject{uitslag}
 
 Hoi \naam
 
@@ -29,23 +21,56 @@ De volgende comfortzones geven aan hoe relaxt je fiets bij een bepaalde
 inspanning.
 
 \bTABLE
-\row white zone 1:\zone{60}:
-\row red zone 2:\zone{75}:
-\row white zone 3:\zone{100}:
-\row red zone 4:\zone{110}:
-\row red zone 5:\zone{120}:
+\row GrannySmithApple 1:\zone{60}:
+\row OliveGreen 2:\zone{67}:
+\row Asparagus 3:\zone{81}:
+\row BurntOrange 4:\zone{90}:
+\row Bittersweet 5:\zone{96}:
 \eTABLE
 
 De basistraining is er op gericht om je fitter te maken. Na 8 weken kun je zone
 3 een uur vol houden.
 
-\subject{stats voor nerds}
 
-\subsubject{ftp}
-\ftp
-\subsubject{cp}
-\ftp
-\subsubject{pp}
-\subsubject{w/kg}
-\subsubject{maxHr}
+\pagebreak
+
+
+\subject{snobs}
+
+De basistraining is bedoeld om je fitter te maken. De onderstaande uitleg is niet nodig om te weten en alleen bedoeld voor snobs. Vaak worden engelse termen gebruikt.
+
+\subsubject{functional threshold power}
+Om trainingeffect te meten hebben we een referentiepunt nodig. Dit referentiepunt noemen we functional threshold power, kortweg ftp. De ftp geeft aan hoeveel vermogen je maximaal kunt leveren binnen een uur. Het vermogen is de verhouding tussen de geleverde kracht en trapfrequentie.
+
+Jouw ftp is: \ftp watt
+
+\subsubject{critical power}
+De critical power (cp) zegt iets over het vermogen dat je een bepaalde tijd kunt volhouden. Tijdens de inspanningstest hebben we alleen een cp60 gemeten en is gelijk aan jouw ftp.
+
+Jouw cp60 is: \ftp  watt
+
+\subsubject{power profile}
+Om jezelf te vergelijken met andere kun je een power profile maken en is gebaseerd op je cp en gewicht. 
+
+Jouw pp is: {\ctxlua{context(\ftp/\gewicht)}} w/kg
+
+\subsubject{HFmax}
+Je hartslag is een goede graadmeter voor jouw huidige toestand. Ben je moe, gestressed of zelf ziek dan zal je dit terug zien aan je hartslag. De maximale hartslag (HFmax) kan als referentiepunt gebruikt worden.
+
+Jouw HFmax is: \hfmax
+
+\subsubject{sweet spot}
+Om vooruitgang te boeken moet je niet te weinig inspanning leveren maar ook zeker niet te veel om overbelasting te voorkomen. De sweet spot is precies de juiste ftp waarde om maximaal trainingseffect te behalen bij een beperkte trainingsomvang.
+
+Jouw sweet spot is: \zone{90} watt
+
+\subsubject{intensity factor}
+De intensity factor zegt iets over de relatieve inspanning van een training. Rij je bijvoorbeeld, genormaliseerd, op 50\% van jouw ftp dan heb je een if van 0.5. maximaal kun je if 1 halen. Ddeze waarde is vooral handig tijdens het rijden om je een indicatie te geven van jouw huidige inspanning.
+
+\subsubject{training stress score}
+Waar if iets zegt over de relatieve intensitijd neemt de tts ook andere factoren mee die bepalend zijn voor de belasting. Denk bijvoorbeeld aan intervallen of omvang. De tts is dus een goede graadmeter om de intensiteit van een trainingssessie te beoordelen. Bij de basistraining wordt deze waarde daarom bij elke sessie weergegeven om je een indicatie te geven van de belasting. Een tts van 100 staat gelijk aan een uur rijden op je ftp.
+
+\subsubject{w'balance}
+Tijdens een training kun je maar een bepaalde energie leveren. w'bal geeft aan hoeveel energie je in theorie nog over hebt. Aan het eind de inspanningstest was deze bijvoorbeeld 0.
+
 \stoptext
