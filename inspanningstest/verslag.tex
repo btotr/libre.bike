@@ -1,15 +1,39 @@
 \environment env
 
-\title{uitslag inspanningstest}
-
 % TODO naar extern bestand
-\def\ftp{300}
-\def\naam{Colin}
-\def\gewicht{81}
-\def\hfmax{184}
+\def\ftp{165}
+\def\naam{Willeke}
+\def\gewicht{70}
+\def\hfmax{150}
 
+\startuseMPgraphic{footer}
+    StartPage ;
+    numeric w ; w := bbwidth(Page) ;
+    numeric h ; h := bbheight(Page) ;
+    fill (unitsquare xyscaled (w,0.1h)) withcolor \MPcolor{red} ;
+    StopPage ;
+\stopuseMPgraphic
 
+\defineoverlay[footer][\useMPgraphic{footer}]
+
+\setupbackgrounds[page][background=footer]
 \starttext
+
+
+\startMPpage
+    StartPage ;
+    numeric w ; w := bbwidth(Page) ;
+    numeric h ; h := bbheight(Page) ;
+    fill (unitsquare xyscaled (w,h)) withcolor \MPcolor{red} ;
+    theta := 20; gap := 8; N := 100;
+    picture lines; lines = image( 
+    for i=-N upto N: 
+       draw ((left--right) scaled w) rotated theta shifted (gap*i*up); 
+    endfor );
+    draw lines withcolor .674 red withpen pencircle scaled 0.1bp;
+    draw textext.rt("ramp test") shifted (.1w,.70h) withcolor white;
+    StopPage ;
+\stopMPpage
 
 Hoi \naam
 
@@ -30,6 +54,7 @@ inspanning.
 
 De basistraining is er op gericht om je fitter te maken. Na 8 weken kun je zone
 3 een uur vol houden.
+
 
 
 \pagebreak
