@@ -1,4 +1,3 @@
-\environment env
 
 % TODO naar extern bestand
 \def\ftp{165}
@@ -6,34 +5,7 @@
 \def\gewicht{70}
 \def\hfmax{150}
 
-\startuseMPgraphic{footer}
-    StartPage ;
-    numeric w ; w := bbwidth(Page) ;
-    numeric h ; h := bbheight(Page) ;
-    fill (unitsquare xyscaled (w,0.1h)) withcolor \MPcolor{red} ;
-    StopPage ;
-\stopuseMPgraphic
-
-\defineoverlay[footer][\useMPgraphic{footer}]
-
-\setupbackgrounds[page][background=footer]
 \starttext
-
-
-\startMPpage
-    StartPage ;
-    numeric w ; w := bbwidth(Page) ;
-    numeric h ; h := bbheight(Page) ;
-    fill (unitsquare xyscaled (w,h)) withcolor \MPcolor{red} ;
-    theta := 20; gap := 8; N := 100;
-    picture lines; lines = image( 
-    for i=-N upto N: 
-       draw ((left--right) scaled w) rotated theta shifted (gap*i*up); 
-    endfor );
-    draw lines withcolor .674 red withpen pencircle scaled 0.1bp;
-    draw textext.rt("ramp test") shifted (.1w,.70h) withcolor white;
-    StopPage ;
-\stopMPpage
 
 Hoi \naam
 
@@ -41,20 +13,10 @@ Tof dat je een inspanningstest hebt gedaan. Met deze test weten we nu precies jo
 
 En dat is mooi want met deze zone weten we wanneer we je moeten prikkelen om fitter te worden of juist remmen wanneer je te hard werkt.
 
-De volgende comfortzones geven aan hoe relaxt je fiets bij een bepaalde
-inspanning.
+Op de volgende pagina's vindt je jouw comfortzone terug plus een heleboel andere statistieken die je niet nodig zult hebben maar wellicht leuk vindt om te weten. 
 
-\bTABLE
-\row GrannySmithApple 1:\zone{60}:
-\row OliveGreen 2:\zone{67}:
-\row Asparagus 3:\zone{81}:
-\row BurntOrange 4:\zone{90}:
-\row Bittersweet 5:\zone{96}:
-\eTABLE
-
-De basistraining is er op gericht om je fitter te maken. Na 8 weken kun je zone
-3 een uur vol houden.
-
+De basistraining is er op gericht om je fitter te maken maar belangrijker: Na acht weken weet heb je voldoende gevoel om je eigen plan te trekken.
+Mischien is jouw doel om af te vallen. Je leert tijdens de training op welke hartslag dit het beste kan doen, Mischien wil je wel een mooie uitdaging aangaan. De basis training geeft je voldoende kennis en fitheid hievoor.
 
 
 \pagebreak
@@ -67,27 +29,39 @@ De basistraining is bedoeld om je fitter te maken. De onderstaande uitleg is nie
 \subsubject{functional threshold power}
 Om trainingeffect te meten hebben we een referentiepunt nodig. Dit referentiepunt noemen we functional threshold power, kortweg ftp. De ftp geeft aan hoeveel vermogen je maximaal kunt leveren binnen een uur. Het vermogen is de verhouding tussen de geleverde kracht en trapfrequentie.
 
-Jouw ftp is: \ftp watt
+Jouw ftp is: \waarde{\bf \ftp W}
+
+\subsubject{power zone}
+
+Jouw intensiteit van een inspanning hangt af van welke power zone je rijd. (power is de Engelse term voor vermogen) Eigenlijk zou een comfortzone een betere benaming zijn. Hieronder zijn jouw zones te zien.
+\blank
+\bTABLE
+\row PinkSherbert 1:\zone{60}W:
+\row VividTangerine 2:\zone{67}W:
+\row Bittersweet 3:\zone{81}W:
+\row PermanentGeraniumLake 4:\zone{90}W:
+\row MaximumRed 5:\zone{96}W:
+\eTABLE
 
 \subsubject{critical power}
 De critical power (cp) zegt iets over het vermogen dat je een bepaalde tijd kunt volhouden. Tijdens de inspanningstest hebben we alleen een cp60 gemeten en is gelijk aan jouw ftp.
 
-Jouw cp60 is: \ftp  watt
+Jouw cp60 is: \waarde{\bf \ftp W}
 
 \subsubject{power profile}
 Om jezelf te vergelijken met andere kun je een power profile maken en is gebaseerd op je cp en gewicht. 
 
-Jouw pp is: {\ctxlua{context(\ftp/\gewicht)}} w/kg
+Jouw pp is: \waarde{\bf {\ctxlua{context(math.floor(\ftp/\gewicht*100)/100)}} W/kg}
 
 \subsubject{HFmax}
 Je hartslag is een goede graadmeter voor jouw huidige toestand. Ben je moe, gestressed of zelf ziek dan zal je dit terug zien aan je hartslag. De maximale hartslag (HFmax) kan als referentiepunt gebruikt worden.
 
-Jouw HFmax is: \hfmax
+Jouw HFmax is: \waarde{\bf \hfmax bpm}
 
 \subsubject{sweet spot}
 Om vooruitgang te boeken moet je niet te weinig inspanning leveren maar ook zeker niet te veel om overbelasting te voorkomen. De sweet spot is precies de juiste ftp waarde om maximaal trainingseffect te behalen bij een beperkte trainingsomvang.
 
-Jouw sweet spot is: \zone{90} watt
+Jouw sweet spot is: \waarde{\bf \zone{90} W}
 
 \subsubject{intensity factor}
 De intensity factor zegt iets over de relatieve inspanning van een training. Rij je bijvoorbeeld, genormaliseerd, op 50\% van jouw ftp dan heb je een if van 0.5. maximaal kun je if 1 halen. Ddeze waarde is vooral handig tijdens het rijden om je een indicatie te geven van jouw huidige inspanning.

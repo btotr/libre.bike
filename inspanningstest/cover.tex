@@ -1,0 +1,25 @@
+\startuseMPgraphic{cover}
+    StartPage ;
+    numeric w ; w := bbwidth(Page) ;
+    numeric h ; h := bbheight(Page) ;
+    fill (unitsquare xyscaled (w,h)) withcolor \MPcolor{red} ;
+    theta := 20; gap := 8; N := 100;
+    picture lines; lines = image( 
+    for i=-N upto N: 
+       draw ((left--right) scaled w) rotated theta shifted (gap*i*up); 
+    endfor );
+    draw lines withcolor .674 red withpen pencircle scaled 0.1bp;
+    StopPage ;
+\stopuseMPgraphic
+
+\defineoverlay[cover][\useMPgraphic{cover}]
+\setupbackgrounds[page][background=cover]
+
+\startstandardmakeup
+  \raggedcenter
+  \vfill \definedfont[SerifBold at 48pt]\setstrut \strut \color[white]{ramp} 
+  \blank[2*big] \definedfont[SerifBold at 36pt]\setstrut \strut \color[white]{test}
+  \vfill
+\stopstandardmakeup
+
+\setupbackgrounds[page][background=]
