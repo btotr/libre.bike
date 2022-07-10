@@ -1,10 +1,10 @@
 # libre.bike
 
-Basistraining schema voor coaches en generatie van ramptest-rapport
+Basistraining schema voor coaches en generatie van ramptest-rapport. 
 
 ## afhankelijkheden
 
-zorg ervoor dat [ConText](https://wiki.contextgarden.net/Installation) is geinstaleerd.
+Zorg ervoor dat [ConText](https://wiki.contextgarden.net/Installation) is geinstaleerd.
 Op Ubuntu doe je dit met:
 
 ```
@@ -23,3 +23,5 @@ Doe een ramptest en verwerk de gegevens in 'inspanningstest/user.tex'
 ```
 context ramptest.tex
 ```
+
+Dit zal een [ramptest-rapport](https://github.com/btotr/libre.bike/files/9079287/ramptest.pdf) genereren om te delen
